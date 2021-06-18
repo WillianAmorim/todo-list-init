@@ -42,3 +42,20 @@ function riscarTarefa(event) {
 }
 addEventListener('dblclick', riscarTarefa)
 
+let botaoApagar = document.querySelector('#apaga-tudo')
+
+function apagarTarefas (event) {
+    let eventoClick = event.target 
+    let elementoLi = document.querySelectorAll('li')
+    let listaOrdenada = document.querySelector('#lista-tarefas')
+    console.log(elementoLi)
+
+    for(index = 0; index < elementoLi.length; index += 1){
+        console.log(elementoLi[index])
+        listaOrdenada.removeChild(elementoLi[index])
+    }
+    
+    
+}
+
+botaoApagar.addEventListener('click', apagarTarefas)

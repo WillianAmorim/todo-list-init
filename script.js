@@ -2,7 +2,6 @@ let button = document.querySelector('#criar-tarefa')
 let lista = document.getElementById('lista-tarefas');
 let input = document.getElementById('texto-tarefa');
 
-
 let selecionaCor = document.createElement('class')
 
 function alterarCorDeFundo(event){
@@ -11,9 +10,7 @@ function alterarCorDeFundo(event){
     if(classeSelected != null){
         classeSelected.classList.remove('selected')
     }
-    tarefa.classList.add('selected')
-    
-    
+    tarefa.classList.add('selected')    
 }
 
 function adicionarTarefa(){
@@ -27,13 +24,46 @@ li.addEventListener('click', alterarCorDeFundo)
 
 button.addEventListener('click', adicionarTarefa)
 
-/* function mudarCor () {
-    if (li = 'click'){
-        li = document.getElementsByTagName('li').classList.add('selected')
+
+
+let tarefas = lista.childNodes
+let classeCompleted = document.querySelector('.completed')
+
+function riscarTarefa(event) {
+    let eventoClick = event.target
+    
+    if( eventoClick.classList.contains('completed')){
+        eventoClick.classList.remove('completed')
+    }else {
+        eventoClick.classList.add('completed')    
+    }
+    
+    
+}
+addEventListener('dblclick', riscarTarefa)
+
+/* function removerRiscado(event){
+    let clique = event.target
+     
+    for(index = 0; index <= tarefas.length; index += 1){
+        elementosDaLista = tarefas[index]
+
+        if(elementosDaLista === clique){
+            elementosDaLista.classList.remove('completed')
+        }
     }
 }
- */
+
+addEventListener('dblclick', removerRiscado) */
 
 
 
+/* 
+for(index = 0; index <= tarefas.length; index += 1){
+    elementosLista = tarefas[index]
 
+if(elementosLista === tarefaRiscada){
+    elementosLista.classList.remove('completed')
+}
+
+} */

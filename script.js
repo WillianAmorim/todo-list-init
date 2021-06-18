@@ -42,28 +42,3 @@ function riscarTarefa(event) {
 }
 addEventListener('dblclick', riscarTarefa)
 
-/* function removerRiscado(event){
-    let clique = event.target
-     
-    for(index = 0; index <= tarefas.length; index += 1){
-        elementosDaLista = tarefas[index]
-
-        if(elementosDaLista === clique){
-            elementosDaLista.classList.remove('completed')
-        }
-    }
-}
-
-addEventListener('dblclick', removerRiscado) */
-
-
-
-/* 
-for(index = 0; index <= tarefas.length; index += 1){
-    elementosLista = tarefas[index]
-
-if(elementosLista === tarefaRiscada){
-    elementosLista.classList.remove('completed')
-}
-
-} */

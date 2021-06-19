@@ -54,8 +54,21 @@ function apagarTarefas (event) {
         console.log(elementoLi[index])
         listaOrdenada.removeChild(elementoLi[index])
     }
+}
+botaoApagar.addEventListener('click', apagarTarefas)
+
+let tarefaConcluida = document.getElementsByClassName('completed')
+let botaoRemover = document.querySelector('#remover-finalizados')
+function removerTarefasConcluidas (){
     
+    let elementoLi = document.querySelectorAll('li')
+    let listaOrdenada = document.querySelector('#lista-tarefas')
     
+    for(index = 0; index < elementoLi.length; index += 1){
+        if(elementoLi[index].classList.contains('completed')){
+            listaOrdenada.removeChild(elementoLi[index])
+        }        
+    }
 }
 
-botaoApagar.addEventListener('click', apagarTarefas)
+botaoRemover.addEventListener('click', removerTarefasConcluidas)

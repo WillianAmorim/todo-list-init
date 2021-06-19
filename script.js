@@ -72,3 +72,22 @@ function removerTarefasConcluidas (){
 }
 
 botaoRemover.addEventListener('click', removerTarefasConcluidas)
+
+
+
+botaoRemoverSelecionado = document.querySelector('#remover-selecionado')
+function removerSelecionado() {
+    
+    let classeSelected = document.querySelector('.selected')
+    let elementoLi = document.querySelectorAll('li')
+    let listaOrdenada = document.querySelector('#lista-tarefas') 
+    
+    for(index = 0; index <elementoLi.length; index += 1){
+        if(elementoLi[index].classList.contains('selected')){
+            listaOrdenada.removeChild(elementoLi[index])    
+        }
+    }
+    
+}
+
+botaoRemoverSelecionado.addEventListener('click', removerSelecionado)

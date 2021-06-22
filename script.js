@@ -75,19 +75,59 @@ botaoRemover.addEventListener('click', removerTarefasConcluidas)
 
 
 
-botaoRemoverSelecionado = document.querySelector('#remover-selecionado')
+let botaoRemoverSelecionado = document.querySelector('#remover-selecionado')
 function removerSelecionado() {
     
-    let classeSelected = document.querySelector('.selected')
+    /* let classeSelected = document.querySelector('.selected') */
     let elementoLi = document.querySelectorAll('li')
     let listaOrdenada = document.querySelector('#lista-tarefas') 
     
-    for(index = 0; index <elementoLi.length; index += 1){
+    for(index = 0; index < elementoLi.length; index += 1){
         if(elementoLi[index].classList.contains('selected')){
             listaOrdenada.removeChild(elementoLi[index])    
         }
-    }
+    }                   
+}
+botaoRemoverSelecionado.addEventListener('click', removerSelecionado)
+
+
+//FUNÇÃO DO BOTÃO MOVER PRA CIMA
+let botaoMoverCima = document.querySelector('#mover-cima')
+function moverParaCima () {
+    let elementosLi = document.querySelectorAll('li')
+    let listaOrdenada = document.querySelector('#lista-tarefas')
+    let classSelected = document.getElementsByClassName('selected')[0]
     
+    listaOrdenada.insertBefore(classSelected, classSelected.previousSibling)    
+}
+botaoMoverCima.addEventListener('click', moverParaCima)
+
+
+//FUNÇÃO DO BOTÃO MOVER PARA BAIXO
+/* let botaoMoverBaixo = document.querySelector('#mover-baixo')
+function moverParaBaixo () {
+    let listaOrdenada = document.querySelector('#lista-tarefas')
+    let classSelected = document.getElementsByClassName('selected')[0]
+    
+    listaOrdenada.insertBefore(classSelected.nextSibling, classSelected)
 }
 
-botaoRemoverSelecionado.addEventListener('click', removerSelecionado)
+botaoMoverBaixo.addEventListener('click', moverParaBaixo) */
+
+
+
+//FUNÇÃO SALVAR TAREFA 
+let botaoSalvar = document.querySelector('#salvar-tarefas')
+
+function salvarTarefa () {
+    let list = document.querySelector('ol').innerHTML
+    // console.log(list)
+
+    localStorage.setItem('tarefas', list)
+    
+}
+botaoSalvar.addEventListener('click', salvarTarefa)
+
+let liTarefas = localStorage.getItem('tarefas')
+// console.log(liTarefas)
+lista.innerHTML = liTarefas
